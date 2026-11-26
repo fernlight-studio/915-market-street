@@ -76,7 +76,7 @@ const src = (f) => typeof f === "number" ? `images/photo-${String(f).padStart(2,
 /* ---------- Fill in listing details ---------- */
 const facts = [
   [LISTING.beds, "Bedrooms"], [LISTING.baths, "Bathrooms"], [LISTING.sqft, "Sq Ft"],
-  [LISTING.lot, "Lot"], [LISTING.yearBuilt, "Built"], [LISTING.garage, "Garage"],
+  [LISTING.lot, "Lot"], [LISTING.yearBuilt, "Built"], [LISTING.garage, "Garage · EV"],
 ].filter(([v]) => v);
 document.getElementById("facts").innerHTML = facts
   .map(([v, l]) => `<li><strong>${v}</strong><span>${l}</span></li>`).join("");
