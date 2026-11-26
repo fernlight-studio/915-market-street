@@ -321,3 +321,21 @@ h3 { font-size: 1.5rem; }
 .brochure-btn { margin-top: 2.2rem; }
 .timing-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem 2rem; }
 .timing .text-link { color: var(--accent-soft); }
+
+/* Top bar: brochure + tour buttons */
+.nav-actions { display: flex; gap: .6rem; align-items: center; }
+.btn .short { display: none; }
+.btn-line { background: transparent; color: inherit; border-color: currentColor; }
+.btn-line:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.nav:not(.solid) .btn-line { border-color: rgba(255,255,255,.7); }
+@media (max-width: 600px) {
+  .nav-actions { gap: .4rem; }
+  .nav-actions .btn .long { display: none; }
+  .nav-actions .btn .short { display: inline; }
+}
+.nav-actions .btn { white-space: nowrap; }
+@media (max-width: 600px) {
+  .nav-top { gap: .5rem; }
+  .nav-actions .btn-small { padding: .55rem .6rem; font-size: .56rem; letter-spacing: .1em; }
+}
+@media (max-width: 360px) { .brand-num { display: none; } }
