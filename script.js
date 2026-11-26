@@ -64,11 +64,18 @@ const PHOTOS = [
   [34, "more", "Gym"],
 ];
 
+/* Floor plans, shown in their own gallery tab */
+const PLANS = [
+  ["floorplan-main.jpg", "plans", "Main level: entry, great room, dining, kitchen with walk-in pantry, office, guest suite with bath, powder room, outdoor living deck"],
+  ["floorplan-upper.jpg", "plans", "Upper level: primary bedroom with deck, primary bath, walk-in closet, two bedrooms, two baths, laundry"],
+  ["floorplan-lower.jpg", "plans", "Lower level: media room, wine room, gym/bonus room, bath, mudroom, 3-car garage"],
+];
+
 /* The six photos the gallery opens on, in this order */
 const FEATURED = [24, 7, 5, "view-01.jpg", 33, 20];
 
 const CATEGORIES = {
-  featured: "Highlights", all: "All photos", exterior: "Exterior", living: "Living", views: "Deck & Views", kitchen: "Kitchen & Dining", bedrooms: "Bedrooms", baths: "Bathrooms", more: "More",
+  featured: "Highlights", all: "All photos", exterior: "Exterior", living: "Living", views: "Deck & Views", kitchen: "Kitchen & Dining", bedrooms: "Bedrooms", baths: "Bathrooms", more: "More", plans: "Floor Plans",
 };
 
 const src = (f) => typeof f === "number" ? `images/photo-${String(f).padStart(2, "0")}.webp` : `images/${f}`;
@@ -95,14 +102,20 @@ const filterBar = document.getElementById("filters");
 let visible = PHOTOS;
 
 const viewAll = document.getElementById("view-all");
+const plansNote = document.getElementById("plans-note");
+const lb = document.getElementById("lightbox");
 
 function renderGallery(cat) {
   if (cat === "featured") visible = FEATURED.map((f) => PHOTOS.find((p) => p[0] === f));
+  else if (cat === "plans") visible = PLANS;
   else visible = cat === "all" ? PHOTOS : PHOTOS.filter((p) => p[1] === cat);
   grid.classList.toggle("featured", cat === "featured");
+  grid.classList.toggle("plans", cat === "plans");
+  plansNote.hidden = cat !== "plans";
+  lb.classList.toggle("plans", cat === "plans");
   grid.innerHTML = visible.map(([f, , caption], i) =>
     `<button class="tile" data-i="${i}"><img src="${src(f)}" alt="${caption}" loading="lazy">` +
-    `<span class="tile-caption">${caption}</span></button>`).join("");
+    `<span class="tile-caption">${cat === "plans" ? caption.split(":")[0] : caption}</span></button>`).join("");
   filterBar.querySelectorAll("button").forEach((b) =>
     b.setAttribute("aria-selected", b.dataset.cat === cat));
   viewAll.hidden = cat !== "featured";
@@ -119,7 +132,6 @@ viewAll.addEventListener("click", () => renderGallery("all"));
 renderGallery("featured");
 
 /* ---------- Lightbox ---------- */
-const lb = document.getElementById("lightbox");
 const lbImg = lb.querySelector("img");
 const lbCount = lb.querySelector(".lb-count");
 let idx = 0;
@@ -217,7 +229,7 @@ document.querySelectorAll("[data-intent]").forEach((a) => a.addEventListener("cl
 
 /* ---------- Section navigation: top tabs + floating menu ---------- */
 const SECTIONS = [
-  ["gallery", "Photos"], ["home", "Home & Video"], ["views", "Views"], ["floorplans", "Floor Plans"],
+  ["gallery", "Photos"], ["home", "Home & Video"], ["views", "Views"],
   ["highlights", "Highlights"], ["details", "Details"], ["location", "Location"], ["schools", "Schools"],
   ["neighborhood", "Neighborhood"], ["owners", "Owners' Note"], ["pricing", "Pricing"],
   ["process", "How It Works"], ["contact", "Contact"],

@@ -354,3 +354,15 @@ h3 { font-size: 1.5rem; }
   .ev-feature { grid-template-columns: 1fr; }
   .ev-feature img { min-height: 0; aspect-ratio: 4/3; }
 }
+
+/* ---------- Floor plans tab in the gallery ---------- */
+.gallery.plans { grid-template-columns: repeat(3, 1fr); }
+.gallery.plans .tile { background: #fff; aspect-ratio: 1; border: 1px solid var(--stone); }
+.gallery.plans .tile:first-child { grid-column: auto; grid-row: auto; }
+.gallery.plans .tile img { object-fit: contain; padding: 5% 5% 15%; }
+.gallery.plans .tile-caption { font: 400 1.35rem/1.2 var(--serif); }
+.gallery.plans .tile:hover img { transform: none; }
+.gallery.plans .tile-caption { opacity: 1; color: var(--ink); background: #fff; padding: .9rem 1.1rem 1rem; border-top: 1px solid var(--stone); }
+.plans-note { margin-top: 1.6rem; }
+.lightbox.plans img { background: #fff; padding: 1rem; }
+@media (max-width: 760px) { .gallery.plans { grid-template-columns: 1fr; } }
