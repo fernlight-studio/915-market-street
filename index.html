@@ -13,14 +13,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <header class="nav" id="nav">
     <div class="nav-top">
-      <a class="brand" href="#top">915 Market St</a>
+      <a class="brand" href="#top"><span class="brand-num">915</span> Market Street</a>
       <a class="btn btn-small" href="#contact">Request a Private Tour</a>
     </div>
     <nav class="tabs" id="tabs" aria-label="Page sections"></nav>
@@ -53,13 +53,14 @@
       </div>
       <p class="hero-meta">Privately offered by the owners · Showings by appointment</p>
     </div>
+    <a class="scroll-cue" href="#gallery" aria-label="Scroll to photographs"><span></span></a>
   </section>
 
   <section class="facts" aria-label="Key facts">
     <ul id="facts"></ul>
   </section>
 
-  <section class="section gallery-section" id="gallery">
+  <section class="reveal section gallery-section" id="gallery">
     <p class="eyebrow">Photographs</p>
     <h2>Take a look around</h2>
     <div class="filters" id="filters" role="tablist"></div>
@@ -67,7 +68,7 @@
     <button class="btn btn-outline view-all" id="view-all" type="button">View all photographs</button>
   </section>
 
-  <section class="section intro" id="home">
+  <section class="reveal section intro" id="home">
     <div class="intro-text">
       <p class="eyebrow">The Home</p>
       <h2>Built for the way you live, inside and out</h2>
@@ -95,7 +96,7 @@
     </div>
   </section>
 
-  <section class="section views-section" id="views">
+  <section class="reveal section views-section" id="views">
     <div class="deck-intro">
       <div>
         <p class="eyebrow">The View</p>
@@ -118,7 +119,7 @@
     </div>
   </section>
 
-  <section class="section floorplans" id="floorplans">
+  <section class="reveal section floorplans band-sand" id="floorplans">
     <p class="eyebrow">Floor Plans</p>
     <h2>Three levels, room by room</h2>
     <p class="lead">Select a plan to open it full size.</p>
@@ -139,14 +140,15 @@
     <p class="fine">Plans are from the original architectural drawings. Dimensions are approximate and furniture is shown for scale; please verify measurements independently.</p>
   </section>
 
-  <section class="section features" id="highlights">
+  <section class="reveal section features" id="highlights">
     <p class="eyebrow">Highlights</p>
     <h2>What sets it apart</h2>
-    <div class="feature-grid core">
-      <div class="feature"><h3>Lake, skyline &amp; mountain views</h3><p>Lake Washington, the Seattle skyline and the Olympic Mountains, seen from the great room and the covered upper deck.</p></div>
-      <div class="feature"><h3>Year-round indoor-outdoor living</h3><p>Wide sliding glass doors open the great room to an outdoor living deck with a gas fireplace. Covered decks with <strong>built-in heaters</strong> are usable all year.</p></div>
-      <div class="feature"><h3>Chef's kitchen</h3><p><strong>Gaggenau and Miele luxury appliances</strong>, a 48-inch gas range, a double oven, two dishwashers, a large island and a walk-in pantry.</p></div>
+    <div class="core-grid">
+      <div class="feature core-feature"><img src="images/view-01.jpg" alt="The Seattle skyline across Lake Washington at sunset" loading="lazy"><p class="core-num">01</p><h3>Lake, skyline &amp; mountain views</h3><p>Lake Washington, the Seattle skyline and the Olympic Mountains, seen from the great room and the covered upper deck.</p></div>
+      <div class="feature core-feature"><img src="images/photo-28.webp" alt="Covered deck with heaters" loading="lazy"><p class="core-num">02</p><h3>Year-round indoor-outdoor living</h3><p>Wide sliding glass doors open the great room to an outdoor living deck with a gas fireplace. Covered decks with <strong>built-in heaters</strong> are usable all year.</p></div>
+      <div class="feature core-feature"><img src="images/photo-33.webp" alt="Kitchen island with pendant lighting" loading="lazy"><p class="core-num">03</p><h3>Chef's kitchen</h3><p><strong>Gaggenau and Miele luxury appliances</strong>, a 48-inch gas range, a double oven, two dishwashers, a large island and a walk-in pantry.</p></div>
     </div>
+    <h3 class="sub-title">Also included</h3>
     <div class="feature-grid">
       <div class="feature"><h3>Primary suite</h3><p>A private deck, a spa-style bath with a freestanding soaking tub and curbless shower, and a walk-in closet.</p></div>
       <div class="feature"><h3>Lower level for entertaining</h3><p>A media room with radiant floor heat, a wine room, a gym, a full bath and a mudroom off the garage.</p></div>
@@ -164,7 +166,7 @@
     </div>
   </section>
 
-  <section class="section specs-section" id="details">
+  <section class="reveal section specs-section" id="details">
     <p class="eyebrow">Specifications</p>
     <h2>Property details</h2>
     <div class="specs">
@@ -205,7 +207,7 @@
     </div>
   </section>
 
-  <section class="section location" id="location">
+  <section class="reveal section location" id="location">
     <div>
       <p class="eyebrow">Location</p>
       <h2>In the heart of Kirkland</h2>
@@ -222,7 +224,7 @@
     </div>
   </section>
 
-  <section class="section schools" id="schools">
+  <section class="reveal section schools band-sand" id="schools">
     <p class="eyebrow">Schools</p>
     <h2>Lake Washington School District</h2>
     <p class="lead">Assigned schools are each within about 1.5 miles of the home.</p>
@@ -237,7 +239,7 @@
     </p>
   </section>
 
-  <section class="section neighbors" id="neighborhood">
+  <section class="reveal section neighbors" id="neighborhood">
     <p class="eyebrow">The Neighborhood</p>
     <h2>Life in the Neighborhood</h2>
     <p class="lead">
@@ -248,15 +250,15 @@
     </p>
   </section>
 
-  <section class="section story" id="owners">
+  <section class="reveal section story" id="owners">
     <img src="images/photo-06.webp" alt="Upper and lower decks at dusk" class="story-img" loading="lazy">
     <div>
       <p class="eyebrow">From the Owners</p>
       <h2>A Note from the Owners</h2>
+      <blockquote class="pull-quote">“One of our favorite things about this home is watching the evening sky change over Lake Washington from the covered upper deck.”</blockquote>
       <p>
-        One of our favorite things about this home is watching the evening sky change over Lake Washington
-        from the covered upper deck. It is a wonderful place to unwind, spend time with family and friends,
-        and enjoy the beauty of the Pacific Northwest.
+        It is a wonderful place to unwind, spend time with family and friends, and enjoy the beauty of
+        the Pacific Northwest.
       </p>
       <p>
         We have also loved the convenience of West of Market: being close to Kirkland's waterfront,
@@ -270,7 +272,7 @@
     </div>
   </section>
 
-  <section class="section timing" id="pricing">
+  <section class="reveal section timing" id="pricing">
     <div>
       <p class="eyebrow">Pricing &amp; Timing</p>
       <h2>An early private opportunity</h2>
@@ -288,7 +290,7 @@
     </div>
   </section>
 
-  <section class="section process" id="process">
+  <section class="reveal section process" id="process">
     <p class="eyebrow">Private Sale</p>
     <h2>How a private purchase works</h2>
     <p class="lead">
@@ -304,7 +306,7 @@
     </ol>
   </section>
 
-  <section class="section contact" id="contact">
+  <section class="reveal section contact" id="contact">
     <div class="contact-info">
       <p class="eyebrow">Contact the Owners</p>
       <h2>Request a private tour</h2>
@@ -334,7 +336,9 @@
   </section>
 
   <footer class="footer">
-    <p>915 Market St, Kirkland, WA 98033 · Offered privately by the owners</p>
+    <p class="footer-brand"><span class="brand-num">915</span> Market Street</p>
+    <p>Kirkland, Washington 98033 · Offered privately by the owners</p>
+    <p><a href="#contact">Request a private tour</a> · <a href="mailto:915marketstreetkirkland@gmail.com">915marketstreetkirkland@gmail.com</a></p>
     <p class="disclaimer">Information is believed accurate but not guaranteed. Buyers should verify all details independently, including square footage, lot size, floor plan dimensions and school assignments. Equal Housing Opportunity.</p>
   </footer>
 

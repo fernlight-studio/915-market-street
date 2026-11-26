@@ -16,6 +16,8 @@ const LISTING = {
   openHouse: "",                    // e.g. "Open house: Sat Dec 6 & Sun Dec 7, 1–4 pm"
 };
 
+document.documentElement.classList.add("js");
+
 /* Photos: [file, category, caption]. A number means images/photo-NN.webp. */
 const PHOTOS = [
   [24, "exterior", "Twilight exterior, with Lake Washington beyond"],
@@ -275,3 +277,10 @@ function onScroll() {
 window.addEventListener("scroll", onScroll, { passive: true });
 window.addEventListener("resize", onScroll);
 onScroll();
+
+
+/* ---------- Gentle reveal as sections scroll into view ---------- */
+const revealIO = "IntersectionObserver" in window && new IntersectionObserver((entries) => {
+  entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); revealIO.unobserve(en.target); } });
+}, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
+document.querySelectorAll(".reveal").forEach((el) => revealIO ? revealIO.observe(el) : el.classList.add("in"));
