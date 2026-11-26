@@ -162,6 +162,8 @@ lb.addEventListener("touchend", (e) => {
    Sends straight to LISTING.email through FormSubmit (formsubmit.co), a free
    form-to-email service. The very first request sends an activation email to
    that address; click the link in it once and later requests arrive normally. */
+// FormSubmit alias for LISTING.email, so the address is not exposed to scrapers in the form endpoint
+const FORM_ID = "94a3718c438949bb9585c9b9c9ac7267";
 const form = document.getElementById("contact-form");
 const formStatus = document.getElementById("form-status");
 const sendBtn = form.querySelector('button[type="submit"]');
@@ -177,7 +179,7 @@ form.addEventListener("submit", async (e) => {
   formStatus.textContent = "";
 
   try {
-    const res = await fetch(`https://formsubmit.co/ajax/${LISTING.email}`, {
+    const res = await fetch(`https://formsubmit.co/ajax/${FORM_ID}`, {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
