@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>915 Market Street · Property Brochure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* Source for 915-Market-Street-Brochure.pdf. Letter size, one .page per sheet. */
+  @page { size: 8.5in 11in; margin: 0; }
+  :root { --ink:#1b2120; --night:#121615; --muted:#5e6562; --paper:#f8f5ef; --stone:#e4ddd0; --sand:#f1ece3; --accent:#96754a; --accent-soft:#c9ae84;
+    --serif:"Cormorant Garamond", Georgia, serif; --sans:"Inter", system-ui, sans-serif; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #888; }
+  body { font-family: var(--sans); color: var(--ink); font-weight: 300; font-size: 9.6pt; line-height: 1.6; -webkit-print-color-adjust: exact; print-color-adjust: exact; font-variant-numeric: lining-nums; }
+  .page { width: 8.5in; height: 11in; margin: 0 auto 24px; background: var(--paper); position: relative; overflow: hidden; page-break-after: always; break-after: page; padding: .75in .7in .9in; }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+  @media print { html, body { background: none; } .page { margin: 0; } }
+  img { display: block; max-width: 100%; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.08; margin: 0 0 .4em; }
+  h2 { font-size: 30pt; }
+  h3 { font-size: 15pt; }
+  p { margin: 0 0 .7em; }
+  .eyebrow { font-size: 6.6pt; letter-spacing: .3em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin: 0 0 10pt; display: flex; align-items: center; gap: 9pt; }
+  .eyebrow::before { content: ""; width: 26pt; height: .6pt; background: currentColor; }
+  .muted { color: var(--muted); }
+  .foot { position: absolute; left: .7in; right: .7in; bottom: .45in; display: flex; justify-content: space-between; font-size: 6.6pt; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); border-top: .6pt solid var(--stone); padding-top: 8pt; }
+  .num { font-family: var(--sans); font-size: .6em; letter-spacing: .2em; color: var(--accent); vertical-align: .2em; margin-right: .2em; font-weight: 500; }
+
+  /* Cover */
+  .cover { padding: 0; background: var(--night); color: #f3efe8; }
+  .cover-img { width: 100%; height: 7.1in; object-fit: cover; }
+  .cover-text { padding: .5in .7in 0; }
+  .cover .eyebrow { color: var(--accent-soft); }
+  .cover h1 { font-size: 38pt; font-weight: 400; margin-bottom: 12pt; }
+  .cover .facts { font-size: 7pt; letter-spacing: .24em; text-transform: uppercase; font-weight: 500; }
+  .cover .facts span { color: var(--accent-soft); margin: 0 6pt; }
+  .cover .meta { position: absolute; left: .7in; right: .7in; bottom: .45in; display: flex; justify-content: space-between; font-size: 6.6pt; letter-spacing: .22em; text-transform: uppercase; color: rgba(243,239,232,.6); border-top: .6pt solid rgba(255,255,255,.15); padding-top: 8pt; }
+  .cover .brand { position: absolute; top: .45in; left: .7in; font-family: var(--serif); font-size: 15pt; color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.4); }
+  .cover .brand .num { color: var(--accent-soft); }
+
+  /* Summary */
+  .intro { font-family: var(--serif); font-size: 14.5pt; line-height: 1.45; font-weight: 400; margin: 6pt 0 22pt; }
+  .core { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16pt; margin-bottom: 22pt; }
+  .core img { width: 100%; aspect-ratio: 4/5; object-fit: cover; margin-bottom: 9pt; }
+  .core .n { font-family: var(--serif); font-style: italic; color: var(--accent); font-size: 10pt; margin: 0; }
+  .core h3 { font-size: 13.5pt; margin: 2pt 0 4pt; }
+  .core p { font-size: 8.6pt; color: var(--muted); margin: 0; }
+  .facts-grid { display: grid; grid-template-columns: repeat(6, 1fr); border-top: .8pt solid var(--ink); border-bottom: .6pt solid var(--stone); }
+  .facts-grid div { padding: 10pt 4pt; text-align: center; border-left: .6pt solid var(--stone); }
+  .facts-grid div:first-child { border-left: 0; }
+  .facts-grid strong { display: block; font-family: var(--serif); font-size: 18pt; font-weight: 400; line-height: 1.1; }
+  .facts-grid span { font-size: 6pt; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+
+  /* Floor plans */
+  .plan-page h2 { margin-bottom: 4pt; }
+  .plan-img { width: 100%; height: 6.9in; object-fit: contain; background: #fff; border: .6pt solid var(--stone); padding: 10pt; margin: 14pt 0 12pt; }
+  .rooms { display: flex; flex-wrap: wrap; gap: 4pt 14pt; font-size: 8.4pt; color: var(--muted); }
+  .rooms b { color: var(--ink); font-weight: 500; }
+  .note { font-size: 7pt; color: var(--muted); margin-top: 8pt; font-style: italic; }
+
+  /* Feature sheet */
+  .sheet { display: grid; grid-template-columns: 1fr 1fr; gap: 0 26pt; margin-top: 14pt; }
+  .sheet h3 { font-family: var(--sans); font-size: 6.8pt; letter-spacing: .28em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin: 14pt 0 4pt; }
+  .sheet dl { margin: 0; border-top: .8pt solid var(--ink); }
+  .sheet .row { display: grid; grid-template-columns: 1.15in 1fr; gap: 8pt; padding: 5pt 0; border-bottom: .6pt solid var(--stone); font-size: 8.4pt; }
+  .sheet dt { font-size: 6pt; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); font-weight: 500; padding-top: 2pt; }
+  .sheet dd { margin: 0; }
+  .tbc { color: var(--accent); font-style: italic; }
+
+  /* Transaction page */
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 28pt; }
+  .steps { list-style: none; padding: 0; margin: 10pt 0 0; counter-reset: s; }
+  .steps li { counter-increment: s; border-top: .6pt solid var(--stone); padding: 8pt 0 8pt 26pt; position: relative; }
+  .steps li::before { content: "0" counter(s); position: absolute; left: 0; top: 7pt; font-family: var(--serif); font-style: italic; color: var(--accent); font-size: 11pt; }
+  .steps b { display: block; font-family: var(--serif); font-size: 12.5pt; font-weight: 500; }
+  .steps span { font-size: 8.4pt; color: var(--muted); }
+  .schools { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8pt; margin: 8pt 0 0; }
+  .schools div { background: #fff; border: .6pt solid var(--stone); padding: 9pt; }
+  .schools strong { font-family: var(--serif); font-size: 20pt; font-weight: 400; color: var(--accent); line-height: 1; }
+  .schools small { color: var(--muted); }
+  .schools p { margin: 4pt 0 0; font-size: 7.8pt; line-height: 1.35; }
+  .band { background: var(--night); color: #f3efe8; margin: 22pt -.7in 0; padding: 22pt .7in; display: grid; grid-template-columns: 1.1fr 1fr; gap: 26pt; align-items: center; }
+  .band .eyebrow { color: var(--accent-soft); }
+  .band h3 { font-size: 19pt; font-weight: 400; }
+  .band p { color: rgba(243,239,232,.78); font-size: 8.6pt; }
+  .band .email { font-family: var(--serif); font-size: 14pt; color: #fff; border-bottom: .6pt solid var(--accent-soft); text-decoration: none; }
+  .disclaimer { font-size: 6.4pt; color: var(--muted); margin-top: 14pt; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<!-- 1 · Cover -->
+<section class="page cover">
+  <img class="cover-img" src="../images/photo-24.webp" alt="">
+  <p class="brand"><span class="num">915</span> Market Street</p>
+  <div class="cover-text">
+    <p class="eyebrow">West of Market · Kirkland, Washington</p>
+    <h1>Contemporary Living Above Lake Washington</h1>
+    <p class="facts">2024-built <span>·</span> 5 bedrooms <span>·</span> 5.5 baths <span>·</span> 4,378 sq ft <span>·</span> 3-car garage</p>
+  </div>
+  <div class="meta"><span>Property brochure</span><span>Privately offered by the owners</span></div>
+</section>
+
+<!-- 2 · Summary -->
+<section class="page">
+  <p class="eyebrow">The Home</p>
+  <h2>A 2024 residence, blocks from the lake</h2>
+  <p class="intro">A beautifully crafted home in Kirkland's West of Market neighborhood, where sophisticated interiors, indoor-outdoor entertaining, and views of Lake Washington and the Seattle skyline come together.</p>
+  <div class="core">
+    <div><img src="../images/view-01.jpg" alt=""><p class="n">01</p><h3>Lake, skyline &amp; mountain views</h3><p>Lake Washington, the Seattle skyline and the Olympic Mountains, from the great room and the covered upper deck.</p></div>
+    <div><img src="../images/photo-28.webp" alt=""><p class="n">02</p><h3>Year-round indoor-outdoor living</h3><p>Wide sliding doors open the great room to an outdoor living deck with a gas fireplace. Covered decks have built-in heaters.</p></div>
+    <div><img src="../images/photo-33.webp" alt=""><p class="n">03</p><h3>Chef's kitchen</h3><p>Gaggenau and Miele appliances, a 48-inch gas range, double oven, two dishwashers, large island and walk-in pantry.</p></div>
+  </div>
+  <div class="facts-grid">
+    <div><strong>5</strong><span>Bedrooms</span></div>
+    <div><strong>5.5</strong><span>Baths</span></div>
+    <div><strong>4,378</strong><span>Sq ft</span></div>
+    <div><strong>4,983</strong><span>Sq ft lot</span></div>
+    <div><strong>2024</strong><span>Built</span></div>
+    <div><strong>3-car</strong><span>Garage</span></div>
+  </div>
+  <div class="foot"><span>915 Market Street · Kirkland</span><span>02</span></div>
+</section>
+
+<!-- 3 · Main level -->
+<section class="page plan-page">
+  <p class="eyebrow">Floor Plans · 1 of 3</p>
+  <h2>Main level</h2>
+  <img class="plan-img" src="../images/floorplan-main.jpg" alt="Main level floor plan">
+  <div class="rooms"><span><b>Entry</b> with 16'6" ceiling</span><span><b>Great room</b> with gas fireplace</span><span><b>Dining</b></span><span><b>Kitchen</b> with walk-in pantry</span><span><b>Office</b></span><span><b>Guest suite</b> with bath</span><span><b>Powder room</b></span><span><b>Outdoor living deck</b> with gas fireplace</span></div>
+  <p class="note">Plans are from the original architectural drawings. Dimensions are approximate and furniture is shown for scale; please verify measurements independently.</p>
+  <div class="foot"><span>915 Market Street · Kirkland</span><span>03</span></div>
+</section>
+
+<!-- 4 · Upper level -->
+<section class="page plan-page">
+  <p class="eyebrow">Floor Plans · 2 of 3</p>
+  <h2>Upper level</h2>
+  <img class="plan-img" src="../images/floorplan-upper.jpg" alt="Upper level floor plan">
+  <div class="rooms"><span><b>Primary bedroom</b> with private deck</span><span><b>Primary bath</b> with soaking tub &amp; curbless shower</span><span><b>Walk-in closet</b></span><span><b>Two bedrooms</b></span><span><b>Two baths</b></span><span><b>Laundry</b></span></div>
+  <p class="note">Plans are from the original architectural drawings. Dimensions are approximate and furniture is shown for scale; please verify measurements independently.</p>
+  <div class="foot"><span>915 Market Street · Kirkland</span><span>04</span></div>
+</section>
+
+<!-- 5 · Lower level -->
+<section class="page plan-page">
+  <p class="eyebrow">Floor Plans · 3 of 3</p>
+  <h2>Lower level</h2>
+  <img class="plan-img" src="../images/floorplan-lower.jpg" alt="Lower level floor plan">
+  <div class="rooms"><span><b>Media room</b> with radiant floor heat</span><span><b>Wine room</b></span><span><b>Gym / bonus room</b></span><span><b>Bath</b></span><span><b>Mudroom</b></span><span><b>3-car garage</b> with EV charging</span></div>
+  <p class="note">Plans are from the original architectural drawings. Dimensions are approximate and furniture is shown for scale; please verify measurements independently.</p>
+  <div class="foot"><span>915 Market Street · Kirkland</span><span>05</span></div>
+</section>
+
+<!-- 6 · Features & upgrades -->
+<section class="page">
+  <p class="eyebrow">Features &amp; Upgrades</p>
+  <h2>Specifications</h2>
+  <div class="sheet">
+    <div>
+      <h3>Construction</h3>
+      <dl>
+        <div class="row"><dt>Builder</dt><dd>LNL Builds, 2024</dd></div>
+        <div class="row"><dt>Style</dt><dd>Northwest Contemporary, 2 stories + daylight lower level</dd></div>
+        <div class="row"><dt>Living area</dt><dd>4,378 sq ft on three levels</dd></div>
+        <div class="row"><dt>Lot</dt><dd>4,983 sq ft, fully fenced, irrigation</dd></div>
+        <div class="row"><dt>Baths</dt><dd>5.5 (2 full, 3 three-quarter, 1 half)</dd></div>
+        <div class="row"><dt>Flooring</dt><dd>Engineered hardwood, ceramic tile</dd></div>
+      </dl>
+      <h3>Kitchen &amp; appliances</h3>
+      <dl>
+        <div class="row"><dt>Brands</dt><dd>Gaggenau and Miele</dd></div>
+        <div class="row"><dt>Cooking</dt><dd>48" gas range, double oven, microwaves</dd></div>
+        <div class="row"><dt>Cleaning</dt><dd>Two dishwashers</dd></div>
+        <div class="row"><dt>Models</dt><dd class="tbc">Model list available on request</dd></div>
+        <div class="row"><dt>Laundry</dt><dd>Double washer &amp; dryer</dd></div>
+      </dl>
+      <h3>Outdoor</h3>
+      <dl>
+        <div class="row"><dt>Decks</dt><dd>Covered decks with built-in heaters; outdoor living deck with gas fireplace</dd></div>
+        <div class="row"><dt>Lighting</dt><dd>Installed exterior holiday lighting</dd></div>
+        <div class="row"><dt>Parking</dt><dd>3-car attached garage, EV charging</dd></div>
+      </dl>
+    </div>
+    <div>
+      <h3>Systems &amp; comfort</h3>
+      <dl>
+        <div class="row"><dt>Heating</dt><dd>Radiant heat, heat pump with A/C, ductless mini-splits</dd></div>
+        <div class="row"><dt>Hot water</dt><dd>Tankless, with recirculation</dd></div>
+        <div class="row"><dt>Smart home</dt><dd>Automation and structured cabling</dd></div>
+        <div class="row"><dt>Audio</dt><dd>Built-in speakers, Sonos amplifier, Apple AirPlay compatible</dd></div>
+        <div class="row"><dt>Sound</dt><dd>Soundproofing, including insulated walls and doors</dd></div>
+        <div class="row"><dt>Security</dt><dd>Security system</dd></div>
+      </dl>
+      <h3>Upgrades</h3>
+      <dl>
+        <div class="row"><dt>Solar</dt><dd>Solar panels; <span class="tbc">system size and ownership details on request</span></dd></div>
+        <div class="row"><dt>Window coverings</dt><dd>Hunter Douglas blinds throughout</dd></div>
+        <div class="row"><dt>Holiday lighting</dt><dd>Installed exterior lighting</dd></div>
+      </dl>
+      <h3>Utilities</h3>
+      <dl>
+        <div class="row"><dt>Services</dt><dd>City of Kirkland water &amp; sewer, PSE electric, natural gas</dd></div>
+      </dl>
+      <h3>Inclusions</h3>
+      <dl>
+        <div class="row"><dt>Included</dt><dd>Appliances listed above</dd></div>
+        <div class="row"><dt>Exclusions</dt><dd class="tbc">Confirmed with qualified buyers</dd></div>
+      </dl>
+    </div>
+  </div>
+  <div class="foot"><span>915 Market Street · Kirkland</span><span>06</span></div>
+</section>
+
+<!-- 7 · Location, process, contact -->
+<section class="page">
+  <div class="two">
+    <div>
+      <p class="eyebrow">Location</p>
+      <h2 style="font-size:24pt">West of Market, Kirkland</h2>
+      <p class="muted">A short walk to downtown Kirkland's restaurants and shops and the Lake Washington waterfront parks, with easy routes to Bellevue, Redmond and Seattle.</p>
+      <p class="eyebrow" style="margin-top:16pt">Schools · Lake Washington School District</p>
+      <div class="schools">
+        <div><strong>8</strong><small>/10</small><p>Peter Kirk Elementary<br><span class="muted">K–5 · 0.7 mi</span></p></div>
+        <div><strong>8</strong><small>/10</small><p>Kirkland Middle<br><span class="muted">6–8 · 0.7 mi</span></p></div>
+        <div><strong>10</strong><small>/10</small><p>Lake Washington High<br><span class="muted">9–12 · 1.4 mi</span></p></div>
+      </div>
+      <p class="note">GreatSchools ratings as of November 2026. Please verify assignments with the district.</p>
+    </div>
+    <div>
+      <p class="eyebrow">Private Sale</p>
+      <h2 style="font-size:24pt">How a private purchase works</h2>
+      <ol class="steps">
+        <li><b>Request information</b><span>Ask for pricing and property details.</span></li>
+        <li><b>Arrange a private tour</b><span>We'll confirm a convenient time to walk through the home together.</span></li>
+        <li><b>Review documents</b><span>Disclosures and transaction documents are shared at the appropriate stage.</span></li>
+        <li><b>Close professionally</b><span>A Washington real-estate attorney reviews the paperwork, and title and escrow manage the closing.</span></li>
+      </ol>
+    </div>
+  </div>
+  <div class="band">
+    <div>
+      <p class="eyebrow">Pricing &amp; Timing</p>
+      <h3>An early private opportunity</h3>
+      <p>Available for private preview now, ahead of any public listing. Pricing is shared on request. Possession is anticipated in June 2027; an earlier closing with a mutually agreed seller leaseback can be discussed with qualified buyers.</p>
+    </div>
+    <div>
+      <p class="eyebrow">Contact the Owners</p>
+      <p>Showings by appointment.</p>
+      <a class="email" href="mailto:915marketstreetkirkland@gmail.com">915marketstreetkirkland@gmail.com</a>
+      <p style="margin-top:10pt">fernlight-studio.github.io/915-market-street</p>
+    </div>
+  </div>
+  <p class="disclaimer">915 Market St, Kirkland, WA 98033. Information is believed accurate but not guaranteed. Buyers should verify all details independently, including square footage, lot size, floor plan dimensions and school assignments. This brochure is not an offer to sell; terms are subject to a written purchase agreement. Equal Housing Opportunity.</p>
+  <div class="foot"><span>915 Market Street · Kirkland</span><span>07</span></div>
+</section>
+
+</body>
+</html>

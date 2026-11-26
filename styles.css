@@ -316,3 +316,8 @@ h3 { font-size: 1.5rem; }
   .hero .eyebrow { font-size: .6rem; letter-spacing: .2em; }
   .hero .eyebrow::before { display: none; }
 }
+
+/* Brochure download */
+.brochure-btn { margin-top: 2.2rem; }
+.timing-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem 2rem; }
+.timing .text-link { color: var(--accent-soft); }
