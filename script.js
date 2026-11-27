@@ -14,7 +14,34 @@ const LISTING = {
   email: "915marketstreetkirkland@gmail.com",  // the showing form sends to this address
 
   openHouse: "",                    // e.g. "Open house: Sat Dec 6 & Sun Dec 7, 1–4 pm"
+
+  goatcounter: "915market",                // GoatCounter site code, e.g. "915market" → visitor stats at https://915market.goatcounter.com
 };
+
+/* ---------- Visitor stats (GoatCounter: no cookies, no personal data) ---------- */
+if (LISTING.goatcounter) {
+  const gc = document.createElement("script");
+  gc.async = true;
+  gc.src = "https://gc.zgo.at/count.js";
+  gc.dataset.goatcounter = `https://${LISTING.goatcounter}.goatcounter.com/count`;
+  document.head.append(gc);
+}
+/* Count an action (brochure download, tour request…) as an event in GoatCounter */
+function track(name, title) {
+  const send = () => window.goatcounter?.count?.({ path: name, title: title || name, event: true });
+  if (!LISTING.goatcounter) return;
+  if (window.goatcounter?.count) send(); else window.addEventListener("load", () => setTimeout(send, 500), { once: true });
+}
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("a, button");
+  if (!a) return;
+  if (a.matches('a[href*="Brochure.pdf"]')) track("brochure-download", "Downloaded the brochure");
+  else if (a.matches('a[href="#contact"]')) track("tour-button", `Clicked: ${a.textContent.trim()}`);
+  else if (a.matches("[data-cat]")) track(`gallery-${a.dataset.cat}`, `Opened gallery tab: ${a.textContent.trim()}`);
+  else if (a.matches('a[href^="mailto:"]')) track("email-link", "Clicked the email address");
+  else if (a.matches('a[href*="youtu"]')) track("youtube-link", "Opened the full walk-through on YouTube");
+});
+document.querySelector(".video-frame video")?.addEventListener("play", () => track("film-play", "Played the 45-second film"), { once: true });
 
 document.documentElement.classList.add("js");
 
@@ -212,6 +239,7 @@ form.addEventListener("submit", async (e) => {
     form.reset();
     formStatus.classList.add("ok");
     formStatus.textContent = "Thank you! Your message was sent. We'll be in touch soon.";
+    track(`form-sent`, `Form sent: ${f.get("intent")}`);
     sendBtn.textContent = "Sent";
   } catch {
     formStatus.classList.add("err");
